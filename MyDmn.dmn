@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions id="definitions" xmlns:modeler="http://camunda.org/schema/modeler/1.0" modeler:executionPlatform="Camunda Cloud" modeler:executionPlatformVersion="8.3.0" name="definitions" namespace="http://camunda.org/schema/1.0/dmn" xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/">
+  <decision id="testGenerated" name="generationtest">
+    <decisionTable hitPolicy="UNIQUE" id="myDecisionTable">
+      <input id="InputClause_age" label="Age">
+        <inputExpression expressionLanguage="feel" id="ageExpression" typeRef="integer">
+          <text>age</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_color" label="Color">
+        <inputExpression expressionLanguage="feel" id="colorExpression" typeRef="string">
+          <text>color</text>
+        </inputExpression>
+      </input>
+      <output id="OutoutClause_risk" label="Risk" name="risk" typeRef="string"/>
+      <rule id="DecisionRule_1">
+        <inputEntry id="UnaryTestsAge_1">
+          <text>[0..17]</text>
+        </inputEntry>
+        <inputEntry id="UnaryTestsColor_1">
+          <text>-</text>
+        </inputEntry>
+        <outputEntry id="OutputEntryRisk_1">
+          <text>"low"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_2">
+        <inputEntry id="UnaryTestsAge_2">
+          <text>[18..100]</text>
+        </inputEntry>
+        <inputEntry id="UnaryTestsColor_2">
+          <text>"red"</text>
+        </inputEntry>
+        <outputEntry id="OutputEntryRisk_2">
+          <text>"high"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_3">
+        <inputEntry id="UnaryTestsAge_3">
+          <text>[18..100]</text>
+        </inputEntry>
+        <inputEntry id="UnaryTestsColor_3">
+          <text>-</text>
+        </inputEntry>
+        <outputEntry id="OutputEntryRisk_3">
+          <text>"medium"</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+</definitions>
