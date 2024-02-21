@@ -83,14 +83,16 @@ public class App {
         riskOutput.setLabel("Risk");
         riskOutput.setTypeRef("string");
 
-        // now let's add some rules:
+        // now let's add some rules, e.g. for each row from a CSV file:
         MyRule rule1 = new MyRule("[0..17]", "-", "\"low\"");
-        MyRule rule2 = new MyRule("[18..100]", "\"red\"", "\"high\"");
-        MyRule rule3 = new MyRule("[18..100]", "-", "\"medium\"");
-
         addRule(modelInstance, table, rule1, 1);
+        
+        MyRule rule2 = new MyRule("[18..100]", "\"red\"", "\"high\"");
         addRule(modelInstance, table, rule2, 2);
+
+        MyRule rule3 = new MyRule("[18..100]", "-", "\"medium\"");
         addRule(modelInstance, table, rule3, 3);
+
 
         // validate the model
         Dmn.validateModel(modelInstance);
